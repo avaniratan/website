@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { LotusLogo } from '@/components/ui/decorative-curve';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
@@ -15,8 +15,7 @@ export function Header() {
     { label: 'About', href: '/about' },
     { label: 'Approach', href: '/approach' },
     { label: 'Services', href: '/services' },
-    { label: 'Resources', href: '/resources' },
-    { label: 'Journal', href: '/journal' },
+    { label: 'How to Book', href: '/how-to-book' },
     { label: 'FAQs', href: '/faqs' }
   ];
 
@@ -28,8 +27,14 @@ export function Header() {
         
         {/* Left: Logo & Clinical Psychologist Details */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="text-deep-violet group-hover:text-warm-coral transition-colors">
-            <LotusLogo className="w-8 h-8 md:w-9 md:h-9" />
+          <div className="text-deep-violet group-hover:text-warm-coral transition-colors relative w-9 h-9">
+            <Image
+              src="/images/logo.png"
+              alt="Dr. Avani Ratan Logo"
+              fill
+              className="object-contain"
+              sizes="36px"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-lg md:text-xl font-bold tracking-tight text-deep-violet">

@@ -1,6 +1,5 @@
-import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { LotusLogo } from '@/components/ui/decorative-curve';
 import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
 
 export function Footer() {
@@ -16,7 +15,15 @@ export function Footer() {
           {/* Column 1: Branding & Intro */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <LotusLogo className="w-8 h-8 text-warm-coral" />
+              <div className="relative w-8 h-8">
+                <Image
+                  src="/images/logo.png"
+                  alt="Dr. Avani Ratan Logo"
+                  fill
+                  className="object-contain"
+                  sizes="32px"
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="font-serif text-xl font-bold tracking-tight text-white">
                   Dr. Avani Ratan
@@ -87,18 +94,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Resources & Links */}
+          {/* Column 4: Booking & Info */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-serif text-lg font-medium text-white">Resources</h4>
+            <h4 className="font-serif text-lg font-medium text-white">Booking & Info</h4>
             <ul className="flex flex-col gap-3 text-sm text-soft-ivory/85">
               <li>
-                <Link href="/resources" className="hover:text-warm-coral transition-colors">
-                  Worksheets & Guides
+                <Link href="/how-to-book" className="hover:text-warm-coral transition-colors">
+                  How to Book
                 </Link>
               </li>
               <li>
                 <Link href="/book" className="hover:text-warm-coral transition-colors font-semibold">
-                  Book a Consultation
+                  Book a Session
                 </Link>
               </li>
               <li>

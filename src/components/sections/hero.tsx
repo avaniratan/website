@@ -22,12 +22,12 @@ export function Hero() {
             </div>
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1] text-white">
-              You’ve spent years wondering. <br />
-              Today, you can <span className="italic font-normal text-warm-coral">finally understand</span>.
+              You’ve spent years trying to make sense of yourself. <br />
+              It’s time to <span className="italic font-normal text-warm-coral">understand what’s really going on</span>.
             </h1>
 
-            <p className="font-sans text-lg md:text-xl text-soft-ivory/80 font-light max-w-xl leading-relaxed">
-              Anxiety that whispers you’re broken. OCD that won’t let go. ADHD, depression, and relationship loops. Real change begins when we understand.
+            <p className="font-sans text-lg md:text-xl text-soft-ivory/80 font-light max-w-2xl leading-relaxed">
+              Anxiety, OCD, ADHD, Depression, and Relationship Patterns can leave you questioning yourself. Real change begins when we understand the patterns beneath what we experience.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -62,9 +62,9 @@ export function Hero() {
             </div>
 
             {/* Overlapping botanical circular badge */}
-            <div className="absolute bottom-6 -left-4 md:-left-8 bg-warm-coral text-white p-5 rounded-full w-24 h-24 md:w-28 md:h-28 flex flex-col items-center justify-center text-center shadow-lg transform -rotate-12 hover:rotate-0 transition-transform duration-300">
-              <span className="text-[10px] uppercase tracking-widest font-sans font-semibold">Licensed</span>
-              <span className="font-serif text-sm font-bold mt-0.5">RCI Clinical</span>
+            <div className="absolute bottom-6 -left-4 md:-left-8 bg-warm-coral text-white p-4 rounded-full w-24 h-24 md:w-28 md:h-28 flex flex-col items-center justify-center text-center shadow-lg transform -rotate-12 hover:rotate-0 transition-transform duration-300">
+              <span className="text-[9px] uppercase tracking-widest font-sans font-semibold">RCI Registered</span>
+              <span className="font-serif text-xs md:text-sm font-bold mt-0.5">Clinical</span>
               <span className="text-[9px] text-white/90">Psychologist</span>
             </div>
 

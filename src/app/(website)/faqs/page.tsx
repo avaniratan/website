@@ -6,24 +6,40 @@ import { Mail, Phone } from 'lucide-react';
 export default function FAQPage() {
   const faqs = [
     {
-      question: "How is assessment different from just seeing a psychiatrist?",
-      answer: "A psychiatrist can prescribe medication (I can't). A psychological assessment involves a detailed clinical interview, relevant history, standardized psychological testing, behavioural observations where appropriate, and professional interpretation of the findings. The duration depends on the purpose and complexity of the assessment."
+      question: "What happens in the first session?",
+      answer: "The first session is about understanding what brings you to therapy, what you’ve been experiencing, and what you hope to change. We’ll explore your concerns, patterns, and history at a pace that feels comfortable. You don’t need to have everything figured out before you come in."
     },
     {
-      question: "How long until I feel better?",
-      answer: "Progress does not always happen in a straight line. Depending on your concerns and goals, therapy may involve understanding longstanding patterns, developing new coping strategies, working through difficult emotions, improving relationships, and gradually making meaningful changes in everyday life."
+      question: "How do I know if therapy is right for me?",
+      answer: "You don’t need to be in crisis or have a diagnosis to begin therapy. If something in your thoughts, emotions, relationships, or daily life feels difficult to understand or change, therapy can be a space to explore it. We can figure out together whether therapy is the right fit for what you’re going through."
     },
     {
-      question: "Will I need to be on medication?",
-      answer: "I don't prescribe, but I work closely with psychiatrists who do. Some people benefit from medication + therapy. Some benefit from therapy alone. That's a conversation we'll have together."
+      question: "What if I don't know what's wrong with me?",
+      answer: "You don’t need to know. Many people come to therapy knowing that something feels off, but not knowing how to explain it. Understanding what you’re experiencing and the patterns contributing to it is part of the work."
     },
     {
-      question: "What if I'm LGBTQIA+—will you judge me?",
-      answer: "No. I aim to provide an inclusive and non-judgmental space where identity, relationships and mental health concerns can be discussed openly and respectfully."
+      question: "What if I've tried therapy before and it didn't help?",
+      answer: "A difficult or unhelpful experience with therapy doesn’t mean therapy cannot help you. Different approaches, therapists, and therapeutic relationships can make a difference. We can also explore what didn’t work previously and what you may need this time around."
     },
     {
-      question: "How confidential is this?",
-      answer: "Completely. What you tell me is protected by law and by my ethics."
+      question: "Do I need a diagnosis before starting therapy?",
+      answer: "No. You don’t need a formal diagnosis to seek therapy. Therapy can help you understand patterns, difficulties, and experiences even when you’re not sure what to call them. If an assessment or diagnosis would be clinically useful, we can discuss that as part of the process."
+    },
+    {
+      question: "Do you offer online sessions?",
+      answer: "Yes. Sessions are available online, allowing you to access therapy regardless of where you are located."
+    },
+    {
+      question: "How do I book a session?",
+      answer: "You can book a session through the Book a Session button on the website. You’ll be guided through the available options and next steps."
+    },
+    {
+      question: "What if I'm not comfortable talking about everything right away?",
+      answer: "That’s okay. Therapy isn’t about forcing yourself to disclose everything at once. We can begin with what feels manageable and build trust over time. You’re allowed to move at a pace that feels safe and comfortable for you."
+    },
+    {
+      question: "Can I see a psychologist if I'm already seeing a psychiatrist?",
+      answer: "Yes. Psychological therapy and psychiatric care can work alongside each other. When appropriate and with your consent, treatment can also be coordinated with your psychiatrist or other healthcare providers."
     }
   ];
 

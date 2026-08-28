@@ -116,17 +116,31 @@ export function AreasOfSupport() {
       slug: 'relationship-dynamics'
     },
     {
+      title: 'ADHD & Executive Functioning',
+      description: 'Understand attention, motivation, procrastination, emotional regulation, and the patterns that make everyday life feel harder than it should.',
+      iconName: 'Compass',
+      colorTheme: 'beige',
+      slug: 'adhd-executive-functioning'
+    },
+    {
+      title: 'Attachment Patterns & Relationships',
+      description: 'Understand how early relational experiences shape the way you connect, communicate, seek reassurance, handle conflict, and experience closeness.',
+      iconName: 'Users',
+      colorTheme: 'peach',
+      slug: 'attachment-patterns-relationships'
+    },
+    {
       title: 'Depression & Low Mood',
       description: 'Slowly rebuild daily cycles, identify cognitive traps, restore motivation, and navigate the fog of apathy step-by-step.',
       iconName: 'Activity',
-      colorTheme: 'beige',
+      colorTheme: 'stone',
       slug: 'depression-low-mood'
     },
     {
       title: 'OCD & Intrusive Thoughts',
       description: 'Employ exposure therapy structures to quiet compulsive routines, safely manage intrusive fears, and lower anxiety levels.',
       iconName: 'Brain',
-      colorTheme: 'peach',
+      colorTheme: 'lavender',
       slug: 'ocd-intrusive-thoughts'
     },
     {
