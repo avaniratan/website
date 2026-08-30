@@ -4,7 +4,6 @@ import { About } from '@/components/sections/about';
 import { AreasOfSupport } from '@/components/sections/services';
 import { Approach } from '@/components/sections/approach';
 import { Testimonials } from '@/components/sections/testimonials';
-import { JournalPreview } from '@/components/sections/journal-preview';
 import { CurvedSectionSeparator } from '@/components/ui/decorative-curve';
 import { client } from '@/sanity/client';
 
@@ -29,7 +28,6 @@ export default async function Homepage() {
       <AreasOfSupport />
       <Approach />
       <Testimonials initialTestimonials={testimonials} />
-      <JournalPreview />
     </>
   );
 }

@@ -1,12 +1,8 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import * as Icons from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ServicesPage() {
-  const [showTools, setShowTools] = useState(false);
-
   const therapyServices = [
     {
       title: 'Anxiety & Stress',
@@ -60,33 +56,6 @@ export default function ServicesPage() {
     'Specific Learning Disability'
   ];
 
-  const assessmentTools = [
-    {
-      category: 'Screening & Developmental Assessments',
-      tests: ['Seguin Form Board Test (SFBT)', 'Gesell’s Drawing Test (GDT)', 'Vineland Social Maturity Scale (VSMS)', 'Draw-A-Man Test']
-    },
-    {
-      category: 'Intellectual & Cognitive Assessments',
-      tests: ['Wechsler Adult Intelligence Scale (WAIS)', 'Wechsler Adult Performance Intelligence Scale (WAPIS)', 'Bhatia’s Battery of Performance Tests of Intelligence (BKT)', 'Malin’s Intelligence Scale for Indian Children (MISIC)']
-    },
-    {
-      category: 'Personality Assessments',
-      tests: ['16 Personality Factor Questionnaire (16PF)', 'Minnesota Multiphasic Personality Inventory (MMPI)', 'Thematic Apperception Test (TAT)', 'Rorschach Inkblot Test']
-    },
-    {
-      category: 'Neuropsychological Assessments',
-      tests: ['PGI Battery of Brain Dysfunction (PGI-BBD)', 'AIIMS Neuropsychological Battery']
-    },
-    {
-      category: 'Neurodevelopmental & Specific Learning Assessments',
-      tests: [
-        'Specific Learning Disability (SLD): NIMHANS SLD Battery',
-        'Autism Spectrum Disorder (ASD): Indian Scale for Assessment of Autism (ISAA)',
-        'ADHD: Conners’ Adult ADHD Rating Scales (CAARS), DIVA-5'
-      ]
-    }
-  ];
-
   return (
     <div className="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-20">
       
@@ -113,34 +82,6 @@ export default function ServicesPage() {
                 {area}
               </div>
             ))}
-          </div>
-
-          {/* Expandable Section */}
-          <div className="mt-8 border-t border-muted-violet/10 pt-6">
-            <button
-              onClick={() => setShowTools(!showTools)}
-              className="w-full flex items-center justify-between font-serif text-lg font-bold text-deep-violet hover:text-warm-coral transition-colors"
-            >
-              <span>View Assessment Tools & Tests</span>
-              <span className="text-xl">{showTools ? '−' : '+'}</span>
-            </button>
-
-            {showTools && (
-              <div className="mt-6 flex flex-col gap-6 animate-fade-in">
-                {assessmentTools.map((cat, idx) => (
-                  <div key={idx} className="flex flex-col gap-2">
-                    <h4 className="font-sans text-xs font-semibold text-warm-coral uppercase tracking-widest">
-                      {cat.category}
-                    </h4>
-                    <ul className="list-disc list-inside text-sm text-muted-text flex flex-col gap-1.5 pl-2 font-light">
-                      {cat.tests.map((t, tIdx) => (
-                        <li key={tIdx}>{t}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </section>
