@@ -101,7 +101,7 @@ export default function FAQPage() {
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4 text-warm-coral" />
-            <span>Support Email: support@dravaniratan.com</span>
+            <span>Support Email: dravaniratan@gmail.com</span>
           </div>
         </div>
       </div>

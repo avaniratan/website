@@ -71,19 +71,19 @@ export function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-soft-ivory/85">
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-warm-coral" />
-                <a href="mailto:hello@dravaniratan.com" className="hover:underline">
-                  hello@dravaniratan.com
+                <a href="mailto:dravaniratan@gmail.com" className="hover:underline">
+                  dravaniratan@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-warm-coral" />
-                <a href="tel:+919876543210" className="hover:underline">
-                  +91 98765 43210
+                <a href="tel:+919311358041" className="hover:underline">
+                  +91 93113 58041
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MessageSquare className="w-4 h-4 text-warm-coral" />
-                <a href="https://wa.me/919876543210" className="hover:underline">
+                <a href="https://wa.me/919311358041" className="hover:underline">
                   WhatsApp Support
                 </a>
               </li>

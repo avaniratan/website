@@ -13,7 +13,7 @@ export async function WhatsAppButton() {
   }
 
   // Fallback number if not set in Sanity
-  const finalNumber = (whatsappNumber || '919876543210').replace(/[^0-9]/g, '');
+  const finalNumber = (whatsappNumber || '919311358041').replace(/[^0-9]/g, '');
 
   return (
     <a
