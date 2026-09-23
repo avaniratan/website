@@ -1,7 +1,23 @@
 import { NextResponse } from 'next/server';
 import { writeClient } from '@/sanity/client';
 import { bookingFormSchema } from '@/lib/validation/booking';
+import { logLeadToGoogleSheet } from '@/lib/google-sheets';
 import { addMinutes, parse, format } from 'date-fns';
+
+const fallbackServices: Record<string, { name: string; sessionDuration: number }> = {
+  'anxiety-overwhelm': {
+    name: 'Anxiety & Overwhelm Consultation',
+    sessionDuration: 50
+  },
+  'burnout-exhaustion': {
+    name: 'Burnout & Exhaustion Healing',
+    sessionDuration: 50
+  },
+  'relationship-dynamics': {
+    name: 'Relationship Repair Therapy',
+    sessionDuration: 50
+  }
+};
 
 export async function POST(request: Request) {
   try {
@@ -16,10 +32,13 @@ export async function POST(request: Request) {
     const data = validation.data;
 
     // 2. Fetch service duration to calculate endTime
-    const service = await writeClient.fetch(
+    const sanityService = await writeClient.fetch(
       `*[_type == "services" && _id == $serviceId][0]`,
       { serviceId: data.serviceId }
     );
+    const service = sanityService && !Array.isArray(sanityService)
+      ? sanityService
+      : fallbackServices[data.serviceId];
 
     if (!service) {
       return NextResponse.json({ error: 'Selected service type does not exist.' }, { status: 400 });
@@ -68,7 +87,21 @@ export async function POST(request: Request) {
       timezone: 'Asia/Kolkata'
     };
 
-    const result = await writeClient.create(newBooking);
+    await writeClient.create(newBooking);
+
+    // Await the Apps Script call so serverless runtimes do not drop it early.
+    const leadSyncedToGoogleSheet = await logLeadToGoogleSheet({
+      bookingReference: reference,
+      clientName: data.clientName,
+      email: data.email,
+      phone: data.phone,
+      serviceName: service.name,
+      sessionMode: data.sessionMode,
+      appointmentDate: data.appointmentDate,
+      startTime: data.startTime,
+      endTime,
+      message: data.message
+    });
 
     return NextResponse.json({
       success: true,
@@ -79,11 +112,12 @@ export async function POST(request: Request) {
         startTime: data.startTime,
         endTime,
         serviceName: service.name,
-        sessionMode: data.sessionMode
+        sessionMode: data.sessionMode,
+        leadSyncedToGoogleSheet
       }
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error reserving booking slot:', error);
     return NextResponse.json({
       error: 'An internal server error occurred while finalizing booking.'

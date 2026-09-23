@@ -15,11 +15,6 @@ interface Service {
   cardColor?: string;
 }
 
-interface TimeSlot {
-  startTime: string;
-  endTime: string;
-}
-
 export function BookingFlow() {
   // Step tracker: 1. Service/Mode -> 2. Date/Time -> 3. Contact Form -> 4. Success State
   const [step, setStep] = useState(1);
@@ -30,8 +25,6 @@ export function BookingFlow() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [sessionMode, setSessionMode] = useState('Online');
   const [selectedDate, setSelectedDate] = useState('');
-  const [slots, setSlots] = useState<TimeSlot[]>([]);
-  const [loadingSlots, setLoadingSlots] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
 
   // Form handling
@@ -52,25 +45,6 @@ export function BookingFlow() {
     setServices(defaultServices);
     setLoadingServices(false);
   }, []);
-
-  // Fetch slots on date change
-  useEffect(() => {
-    if (!selectedDate) return;
-    async function fetchSlots() {
-      setLoadingSlots(true);
-      setSelectedTime('');
-      try {
-        const res = await fetch(`/api/availability?date=${selectedDate}`);
-        const data = await res.json();
-        setSlots(data.slots || []);
-      } catch (e) {
-        setSlots([]);
-      } finally {
-        setLoadingSlots(false);
-      }
-    }
-    fetchSlots();
-  }, [selectedDate]);
 
   const handleFormSubmit = async (formData: any) => {
     setServerError('');
@@ -249,31 +223,17 @@ export function BookingFlow() {
             {selectedDate && (
               <div className="flex flex-col gap-3">
                 <label className="text-xs font-sans font-semibold text-muted-text uppercase tracking-wider">
-                  Available Time Slots
+                  Preferred Time
                 </label>
-                {loadingSlots ? (
-                  <div className="text-xs text-muted-text animate-pulse">Calculating therapist schedules...</div>
-                ) : slots.length === 0 ? (
-                  <div className="p-4 bg-amber-50 text-amber-700 rounded-xl text-xs">
-                    No open availability slots found on this date.
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-3 gap-2">
-                    {slots.map((slot) => (
-                      <button
-                        key={slot.startTime}
-                        onClick={() => setSelectedTime(slot.startTime)}
-                        className={`p-2.5 rounded-lg border text-xs font-medium text-center transition-colors ${
-                          selectedTime === slot.startTime
-                            ? 'border-warm-coral bg-warm-coral/10 text-deep-violet font-semibold'
-                            : 'border-muted-violet/10 text-muted-text hover:bg-soft-ivory'
-                        }`}
-                      >
-                        {slot.startTime}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <input
+                  type="time"
+                  value={selectedTime}
+                  onChange={(e) => setSelectedTime(e.target.value)}
+                  className="w-full p-3 border border-muted-violet/20 rounded-xl font-sans text-sm focus:outline-none focus:border-warm-coral"
+                />
+                <p className="text-[11px] text-muted-text font-light">
+                  We'll confirm your exact slot shortly after you submit the form.
+                </p>
               </div>
             )}
 

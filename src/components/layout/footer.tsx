@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
+import InstagramIcon from '../InstagramIcon';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -85,6 +86,17 @@ export function Footer() {
                 <MessageSquare className="w-4 h-4 text-warm-coral" />
                 <a href="https://wa.me/919311358041" className="hover:underline">
                   WhatsApp Support
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <InstagramIcon className="w-4 h-4 text-warm-coral" />
+                <a
+                  href="https://www.instagram.com/psyvera_by_dr.avani?stkn=N3B6ZDhucGczMDY0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  @psyvera_by_dr.avani
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
