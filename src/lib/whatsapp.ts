@@ -1,0 +1,2 @@
+export const WHATSAPP_MESSAGE =
+  'Hello Dr. Avani! I came across your website and would like to explore therapy/ assessment with you. Could you please share the details regarding sessions and availability?';

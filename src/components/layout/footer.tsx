@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
 import InstagramIcon from '../InstagramIcon';
+import { WHATSAPP_MESSAGE } from '@/lib/whatsapp';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -84,7 +85,10 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <MessageSquare className="w-4 h-4 text-warm-coral" />
-                <a href="https://wa.me/919311358041" className="hover:underline">
+                <a
+                  href={`https://wa.me/919311358041?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+                  className="hover:underline"
+                >
                   WhatsApp Support
                 </a>
               </li>
@@ -118,11 +122,6 @@ export function Footer() {
               <li>
                 <Link href="/book" className="hover:text-warm-coral transition-colors font-semibold">
                   Book a Session
-                </Link>
-              </li>
-              <li>
-                <Link href="/crisis" className="text-warm-coral hover:underline font-medium">
-                  Crisis Support Options
                 </Link>
               </li>
             </ul>
